@@ -1,0 +1,202 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/tilemap/New Piskel.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 3.9407, 3.9946 )
+
+[node name="Tilemap" type="Node"]
+
+[node name="TopLeft" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 16, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 8, 8 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="TopLeft" type="StaticBody2D" parent="TopLeft"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+physics_material_override = null
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft/TopLeft"]
+shape = SubResource( 1 )
+
+[node name="BottomLeft" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 16, 24 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 8, 8, 8 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="BottomLeft" type="StaticBody2D" parent="BottomLeft"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+physics_material_override = null
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft/BottomLeft"]
+shape = SubResource( 1 )
+
+[node name="TopMiddle" type="Sprite" parent="."]
+position = Vector2( 32, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 8, 0, 8, 8 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="TopMiddle" type="StaticBody2D" parent="TopMiddle"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+physics_material_override = null
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopMiddle/TopMiddle"]
+shape = SubResource( 1 )
+
+[node name="BottomMiddle" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 32, 24 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 8, 8, 8, 8 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="BottomMiddle" type="StaticBody2D" parent="BottomMiddle"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+physics_material_override = null
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomMiddle/BottomMiddle"]
+shape = SubResource( 1 )
+
+[node name="TopRight" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 48, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 0, 8, 8 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="TopRight" type="StaticBody2D" parent="TopRight"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+physics_material_override = null
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight/TopRight"]
+shape = SubResource( 1 )
+
+[node name="BottomRight" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 48, 24 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 8, 8, 8 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="BottomRight" type="StaticBody2D" parent="BottomRight"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+physics_material_override = null
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight/BottomRight"]
+shape = SubResource( 1 )
+
+[node name="Square" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 16, 40 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 16, 8, 8 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Square" type="StaticBody2D" parent="Square"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+physics_material_override = null
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Square/Square"]
+shape = SubResource( 1 )
+
+[node name="Wall" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 32, 40 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 8, 16, 8, 8 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Wall" type="StaticBody2D" parent="Wall"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+physics_material_override = null
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Wall"]
+shape = SubResource( 1 )
+

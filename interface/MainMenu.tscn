@@ -1,11 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://interface/MissionGenerator.gd" type="Script" id=1]
 [ext_resource path="res://interface/fonts/Pixeled.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 28
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 24
 outline_size = 0
 outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
@@ -83,7 +94,7 @@ custom_constants/margin_left = 30
 custom_constants/margin_bottom = 30
 _sections_unfolded = [ "Custom Constants", "Size Flags" ]
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Missions/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Missions/MarginContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -92,6 +103,22 @@ margin_left = 30.0
 margin_top = 30.0
 margin_right = 960.0
 margin_bottom = 421.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Missions/MarginContainer/VBoxContainer"]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 930.0
+margin_bottom = 195.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -105,7 +132,7 @@ scroll_vertical = 0
 scroll_deadzone = 0
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="Missions" type="VBoxContainer" parent="Missions/MarginContainer/ScrollContainer"]
+[node name="Missions" type="VBoxContainer" parent="Missions/MarginContainer/VBoxContainer/ScrollContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -119,4 +146,105 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Size Flags" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Missions/MarginContainer/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 199.0
+margin_right = 930.0
+margin_bottom = 391.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 0
+alignment = 0
+_sections_unfolded = [ "Custom Constants" ]
+
+[node name="TextureRect" type="TextureRect" parent="Missions/MarginContainer/VBoxContainer/HBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 512.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 512, 192 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Theme" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Missions/MarginContainer/VBoxContainer/HBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 512.0
+margin_right = 930.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="Label" type="Label" parent="Missions/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 418.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "STATS"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Fonts", "Size Flags" ]
+
+[node name="Clean" type="TextureButton" parent="Missions/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 177.0
+margin_top = 72.0
+margin_right = 241.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+expand = true
+_sections_unfolded = [ "Rect", "Size Flags", "Textures" ]
 

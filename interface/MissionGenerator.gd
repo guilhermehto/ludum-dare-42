@@ -2,7 +2,7 @@ extends VBoxContainer
 
 const Mission = preload('res://interface/Mission.tscn')
 
-onready var MissionContainer : = $MarginContainer/ScrollContainer/Missions as VBoxContainer
+onready var MissionContainer : = $MarginContainer/VBoxContainer/ScrollContainer/Missions as VBoxContainer
 
 
 const TITLE_START = ['Kill', 'Annihilate', 'Destroy', 'Exterminate']
