@@ -7,9 +7,9 @@ onready var MissionContainer : = $MarginContainer/VBoxContainer/ScrollContainer/
 
 const TITLE_START = ['Kill', 'Annihilate', 'Destroy', 'Exterminate']
 
-const TITLE_VICTIM = ['Mr. Thompson', 'Eduardo']
+const TITLE_VICTIM = ['Mr. Thompson', 'Eduardo', 'Jose', 'Willian']
 
-const TITLE_VICTIM_FEMALE = ['Caroline']
+const TITLE_VICTIM_FEMALE = ['Caroline', 'Marta', 'This Dudette']
 
 const RARE_TITLE_VICTIM = ['Donald Trump', 'Kim Gon Jun']
 

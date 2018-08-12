@@ -1,28 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/tilemap/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/helpers/MapNav.gd" type="Script" id=2]
-[ext_resource path="res://enemies/Enemy.gd" type="Script" id=3]
-[ext_resource path="res://levels/tilemap/New Piskel.png" type="Texture" id=4]
-[ext_resource path="res://enemies/Sight.gd" type="Script" id=5]
-[ext_resource path="res://player/Player.gd" type="Script" id=6]
-[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://enemies/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="NavigationPolygon" id=1]
 
 vertices = PoolVector2Array( 190, 70, 190, 60, 390, 60, 390, 130, 200, 190, 770, 190, 450, 130, 450, 60, 640, 60, 640, 130, 710, 130, 710, 60, 830, 60, 830, 460, 770, 260, 770, 460, 770, 380, 200, 380, 200, 260 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 4, 3, 6 ), PoolIntArray( 6, 7, 8, 9 ), PoolIntArray( 5, 6, 9 ), PoolIntArray( 5, 9, 10 ), PoolIntArray( 10, 11, 12, 5 ), PoolIntArray( 5, 12, 13, 14 ), PoolIntArray( 13, 15, 16 ), PoolIntArray( 14, 13, 16 ), PoolIntArray( 14, 16, 17, 18 ) ]
 outlines = [ PoolVector2Array( 190, 70, 190, 60, 390, 60, 390, 130, 450, 130, 450, 60, 640, 60, 640, 130, 710, 130, 710, 60, 830, 60, 830, 460, 770, 460, 770, 380, 200, 380, 200, 260, 770, 260, 770, 190, 200, 190 ) ]
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 27.4964, 27.7788 )
-
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 22.523, 23.1389 )
 
 [node name="Level1" type="Node2D"]
 
@@ -57,94 +44,10 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Enemies" type="Node" parent="MapNav"]
 
-[node name="Enemy" type="KinematicBody2D" parent="MapNav/Enemies"]
-position = Vector2( 560, 140 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-motion/sync_to_physics = false
-script = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
-MinWait = 2.75
-MaxWait = 7.5
-MoveSpeed = 125.0
-ChaseSpeed = 175.0
-SightSpeed = 0.75
+[node name="Enemy" parent="MapNav/Enemies" instance=ExtResource( 3 )]
 
-[node name="Timer" type="Timer" parent="MapNav/Enemies/Enemy"]
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
+[node name="Enemy2" parent="MapNav/Enemies" instance=ExtResource( 3 )]
+position = Vector2( 280, 140 )
 
-[node name="Sprite" type="Sprite" parent="MapNav/Enemies/Enemy"]
-scale = Vector2( 8, 8 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 8, 24, 8, 8 )
-_sections_unfolded = [ "Region", "Transform" ]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapNav/Enemies/Enemy"]
-shape = SubResource( 2 )
-
-[node name="Sight" type="Area2D" parent="MapNav/Enemies/Enemy"]
-editor/display_folded = true
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="MapNav/Enemies/Enemy/Sight"]
-build_mode = 0
-polygon = PoolVector2Array( -8.15601, -4.74391, -48.156, -84.7439, 51.844, -84.7439, 11.844, -4.74391 )
-_sections_unfolded = [ "Transform", "shape" ]
-
-[node name="Tween" type="Tween" parent="MapNav/Enemies/Enemy/Sight"]
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="PatrolArea" type="Node" parent="MapNav/Enemies/Enemy"]
-
-[node name="TopLeft" type="Position2D" parent="MapNav/Enemies/Enemy/PatrolArea"]
-position = Vector2( 490, 100 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="TopRight" type="Position2D" parent="MapNav/Enemies/Enemy/PatrolArea"]
-position = Vector2( 610, 100 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Bottom" type="Position2D" parent="MapNav/Enemies/Enemy/PatrolArea"]
-position = Vector2( 560, 150 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Player" type="KinematicBody2D" parent="."]
-editor/display_folded = true
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-motion/sync_to_physics = false
-script = ExtResource( 6 )
-MoveSpeed = 150.0
-
-[node name="Sprite" type="Sprite" parent="Player"]
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 7 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 3 )
-
-[connection signal="timeout" from="MapNav/Enemies/Enemy/Timer" to="MapNav/Enemies/Enemy" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="MapNav/Enemies/Enemy/Sight" to="MapNav/Enemies/Enemy" method="_on_Area2D_body_entered"]
-[connection signal="tween_completed" from="MapNav/Enemies/Enemy/Sight/Tween" to="MapNav/Enemies/Enemy/Sight" method="_on_Tween_tween_completed"]

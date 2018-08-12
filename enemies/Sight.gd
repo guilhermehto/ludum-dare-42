@@ -24,5 +24,4 @@ func start_sight_movement() -> void:
 
 func _on_Tween_tween_completed(object, key):
 	start_sight_movement()
-	print('completed :' + str(key))
 

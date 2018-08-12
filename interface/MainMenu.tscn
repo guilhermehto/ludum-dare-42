@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://interface/MissionGenerator.gd" type="Script" id=1]
-[ext_resource path="res://interface/fonts/Pixeled.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://interface/ui-elements/background.png" type="Texture" id=1]
+[ext_resource path="res://interface/MissionGenerator.gd" type="Script" id=2]
+[ext_resource path="res://interface/fonts/Pixeled.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://interface/ui-elements/basement.png" type="Texture" id=4]
+[ext_resource path="res://interface/ui-elements/button-normal.png" type="Texture" id=5]
+[ext_resource path="res://interface/ui-elements/button-pressed.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -11,7 +14,7 @@ outline_size = 0
 outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -21,7 +24,27 @@ outline_size = 0
 outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 12
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 12
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="MainMenu" type="Control"]
@@ -36,6 +59,21 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 0
+
 [node name="Missions" type="VBoxContainer" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
@@ -49,7 +87,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/separation = 10
 alignment = 0
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Custom Constants" ]
 
 [node name="Label" type="Label" parent="Missions"]
@@ -88,9 +126,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = 30
-custom_constants/margin_top = 30
-custom_constants/margin_left = 30
+custom_constants/margin_right = 50
+custom_constants/margin_top = 0
+custom_constants/margin_left = 50
 custom_constants/margin_bottom = 30
 _sections_unfolded = [ "Custom Constants", "Size Flags" ]
 
@@ -99,9 +137,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 960.0
+margin_left = 50.0
+margin_right = 940.0
 margin_bottom = 421.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -109,7 +146,9 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_constants/separation = 25
 alignment = 0
+_sections_unfolded = [ "Custom Constants" ]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Missions/MarginContainer/VBoxContainer"]
 editor/display_folded = true
@@ -117,8 +156,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 930.0
-margin_bottom = 195.0
+margin_right = 890.0
+margin_bottom = 204.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -137,7 +176,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 930.0
+margin_right = 890.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -152,9 +191,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 199.0
-margin_right = 930.0
-margin_bottom = 391.0
+margin_top = 229.0
+margin_right = 890.0
+margin_bottom = 421.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -179,7 +218,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Theme" ]
@@ -190,7 +229,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 512.0
-margin_right = 930.0
+margin_right = 890.0
 margin_bottom = 192.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -206,7 +245,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 418.0
+margin_right = 378.0
 margin_bottom = 68.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -223,28 +262,77 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Custom Fonts", "Size Flags" ]
 
-[node name="Clean" type="TextureButton" parent="Missions/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Kills" type="Label" parent="Missions/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 177.0
 margin_top = 72.0
-margin_right = 241.0
-margin_bottom = 136.0
+margin_right = 378.0
+margin_bottom = 107.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Kills: 42"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Fonts", "Size Flags" ]
+
+[node name="Clean" type="TextureButton" parent="Missions/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 111.0
+margin_right = 378.0
+margin_bottom = 175.0
 rect_min_size = Vector2( 64, 64 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 1
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
 expand = true
+stretch_mode = 5
 _sections_unfolded = [ "Rect", "Size Flags", "Textures" ]
+
+[node name="Label" type="Label" parent="Missions/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Clean"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -189.0
+margin_top = -34.0
+margin_right = 189.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "CLEAN $50"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Fonts", "Size Flags" ]
 

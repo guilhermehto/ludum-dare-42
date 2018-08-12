@@ -1,17 +1,30 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://interface/Mission.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://interface/fonts/Pixeled.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://interface/portraits/base-portrait.png" type="Texture" id=2]
+[ext_resource path="res://interface/portraits/clothes-g.png" type="Texture" id=3]
+[ext_resource path="res://interface/fonts/Pixeled.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://interface/ui-elements/button-normal.png" type="Texture" id=5]
+[ext_resource path="res://interface/ui-elements/button-pressed.png" type="Texture" id=6]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 
 size = 16
 outline_size = 0
 outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 12
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -21,7 +34,7 @@ outline_size = 0
 outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Mission" type="HBoxContainer"]
@@ -41,6 +54,8 @@ custom_constants/separation = 25
 alignment = 0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Custom Constants", "Size Flags" ]
+MinPrice = null
+MaxPrice = null
 
 [node name="Potrait" type="TextureRect" parent="."]
 anchor_left = 0.0
@@ -57,6 +72,55 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 3
 texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="Clothes" type="TextureRect" parent="Potrait"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="Hair" type="TextureRect" parent="Potrait"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="Feature" type="TextureRect" parent="Potrait"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
 expand = true
 stretch_mode = 6
 _sections_unfolded = [ "Rect", "Size Flags" ]
@@ -92,7 +156,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Anihilate Mr. Thompson"
 percent_visible = 1.0
 lines_skipped = 0
@@ -113,7 +177,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Because I said so"
 percent_visible = 1.0
 lines_skipped = 0
@@ -125,10 +189,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 866.0
+margin_left = 802.0
 margin_right = 930.0
 margin_bottom = 81.0
-rect_min_size = Vector2( 64, 64 )
+rect_min_size = Vector2( 128, 64 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -140,8 +204,29 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
 expand = true
 stretch_mode = 5
 _sections_unfolded = [ "Rect", "Size Flags", "Textures" ]
+
+[node name="Label" type="Label" parent="StartMission"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "$ 5000"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Fonts" ]
 
